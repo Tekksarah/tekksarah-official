@@ -10,174 +10,174 @@
 
   <style>
     :root{
-      --bg-black: #050406;
-      --pink: #ff2fa6;
-      --purple: #7b2cff;
-      --cyan: #00e5ff;
-      --glass: rgba(255,255,255,0.06);
-      --accent: linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));
+      --bg-black:#050406;
+      --pink:#ff2fa6;
+      --purple:#7b2cff;
+      --cyan:#00e5ff;
+      --glass:rgba(255,255,255,0.04);
+      --accent:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));
     }
-
+    *{box-sizing:border-box}
     body{
       margin:0;
       min-height:100vh;
-      font-family: 'Orbitron', system-ui, sans-serif;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(123,44,255,0.06), transparent 10%),
-                  radial-gradient(1000px 500px at 90% 90%, rgba(0,229,255,0.04), transparent 10%),
+      font-family:'Orbitron',system-ui,sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(123,44,255,0.04), transparent 10%),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(0,229,255,0.03), transparent 10%),
                   var(--bg-black);
       color:#fff;
       display:flex;
-      flex-direction:column;
       align-items:center;
+      flex-direction:column;
       gap:28px;
       padding:28px;
     }
 
-    .hero{
+    /* Top header (above banner) */
+    .top {
       width:100%;
       max-width:1100px;
-      border-radius:14px;
-      overflow:hidden;
-      position:relative;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      border: 1px solid rgba(255,255,255,0.03);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      text-align:center;
+      color:#fff;
     }
-
-    .hero img{
-      width:100%;
-      display:block;
-      object-fit:cover;
-    }
-
-    .title-overlay{
-      position:absolute;
-      left:36px;
-      top:28px;
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:1px;
+      opacity:0.9;
       text-transform:uppercase;
     }
-
-    .title-overlay h1{
+    .main-title{
+      font-size:48px;
       margin:0;
-      font-size:46px;
+      line-height:0.95;
       letter-spacing:2px;
       color:var(--pink);
       text-shadow:
         0 0 18px rgba(255,47,166,0.55),
-        0 0 36px rgba(123,44,255,0.15),
-        0 6px 30px rgba(0,0,0,0.6);
+        0 0 36px rgba(123,44,255,0.12);
+    }
+    .main-title strong{ color:var(--cyan); }
+
+    .subline{
+      opacity:0.85;
+      font-size:14px;
     }
 
-    .title-overlay h1 strong{
-      color:var(--cyan);
-      text-shadow:
-        0 0 24px rgba(0,229,255,0.55),
-        0 0 40px rgba(123,44,255,0.12);
-    }
-
-    .card{
-      width:100%;
-      max-width:900px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:22px;
-      border: 1px solid rgba(255,255,255,0.04);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    }
-
-    h2.section{
-      margin:0 0 14px;
-      font-size:18px;
-      border-bottom:2px solid rgba(255,255,255,0.05);
-      padding-bottom:6px;
-    }
-
-    .links{
+    .top-links{
       display:flex;
-      flex-wrap:wrap;
       gap:12px;
+      flex-wrap:wrap;
       justify-content:center;
+      margin-top:6px;
     }
-
-    .btn{
-      padding:12px 18px;
+    .top-links a{
+      padding:10px 16px;
       border-radius:10px;
-      min-width:160px;
       text-decoration:none;
       font-weight:700;
       letter-spacing:1px;
+      background:var(--glass);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .18s, box-shadow .18s;
+    }
+    .top-links a.primary{
+      background-image:var(--accent);
+      color:#050406;
+      border:none;
+      min-width:160px;
+    }
+    .top-links a:hover{ transform:translateY(-4px); box-shadow:0 14px 36px rgba(0,0,0,0.6); }
+
+    /* banner */
+    .banner-wrap{
+      width:100%;
+      max-width:1100px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       display:flex;
       justify-content:center;
       align-items:center;
+      padding:0;
+    }
+    .banner-wrap img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:cover;
+    }
+
+    /* content card under banner */
+    .card{
+      width:100%;
+      max-width:900px;
+      border-radius:12px;
+      padding:20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.6);
+      text-align:center;
+    }
+    .card .links{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+    .btn{
+      padding:10px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:1px;
       background:var(--glass);
       color:#fff;
-      transition: transform .18s, box-shadow .18s;
+      transition:transform .18s, box-shadow .18s;
     }
+    .btn.primary{ background-image:var(--accent); color:#050406; border:none; }
 
-    .btn.primary{
-      background-image: var(--accent);
-      color:#050406;
-      border:none;
-      box-shadow:0 6px 30px rgba(255,47,166,0.2);
-    }
+    .footer{ margin-top:14px; font-size:12px; opacity:0.75; }
 
-    .btn:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 40px rgba(0,0,0,0.6);
-    }
-
-    .small{ font-size:13px; }
-
-    .cols{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-
-    .col{
-      min-width:220px;
-      max-width:320px;
-      text-align:center;
-    }
-
-    .contact{
-      margin-top:18px;
-      font-size:13px;
-      opacity:0.85;
-    }
-
-    .footer{
-      margin-top:18px;
-      font-size:12px;
-      opacity:0.6;
-      text-align:center;
+    @media (max-width:700px){
+      .main-title{ font-size:34px; }
+      .top-links a.primary{ min-width:140px; }
     }
   </style>
 </head>
-
 <body>
-  <div class="hero">
-    <img src="banner.jpg" alt="TekkSarah Banner">
-    <div class="title-overlay">
-      <p style="font-size:12px;">This is</p>
-      <h1><strong>Tekk</strong>Sarah</h1>
-      <p style="font-size:12px; opacity:0.85;">Dark Techno • Beats • Underground</p>
+
+  <!-- TOP HEADER ABOVE BANNER -->
+  <div class="top" role="banner">
+    <div class="eyebrow">This is</div>
+    <h1 class="main-title"><strong>Tekk</strong>Sarah</h1>
+    <div class="subline">Dark Techno • Beats • Underground</div>
+
+    <div class="top-links" aria-label="Quick links">
+      <a class="primary" href="https://open.spotify.com/artist/7mWcwF4VaxZFGJtszGRsR4?si=bmSFVz-MSRCX6wDnSeRrtQ" target="_blank">Spotify</a>
+      <a href="https://youtube.com/@tekksarah?si=hSYzTIBmI_AJsTpd" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/tekksarah1?igsh=bGI3MnhkdmxyZDBp" target="_blank">Instagram</a>
     </div>
   </div>
 
-  <div class="card">
-    <h2 class="section">Latest</h2>
+  <!-- BANNER (unterhalb der Überschrift) -->
+  <div class="banner-wrap" aria-hidden="false">
+    <img src="banner.jpg" alt="TekkSarah Banner" />
+  </div>
 
-    <div class="links">
+  <!-- CONTENT CARD -->
+  <div class="card" role="main">
+    <div style="font-weight:700; letter-spacing:1px;">Latest</div>
+
+    <div class="links" style="margin-top:12px;">
       <a class="btn primary" href="https://open.spotify.com/artist/7mWcwF4VaxZFGJtszGRsR4?si=bmSFVz-MSRCX6wDnSeRrtQ" target="_blank">Spotify</a>
       <a class="btn" href="https://youtube.com/@tekksarah?si=hSYzTIBmI_AJsTpd" target="_blank">YouTube</a>
       <a class="btn" href="https://www.instagram.com/tekksarah1?igsh=bGI3MnhkdmxyZDBp" target="_blank">Instagram</a>
     </div>
 
-    <div class="footer">
-      © <span id="year"></span> TekkSarah — All Rights Reserved
-    </div>
+    <div class="footer">© <span id="year"></span> TekkSarah — All Rights Reserved</div>
   </div>
 
   <script>
