@@ -1,246 +1,182 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TekkSarah – Official</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TekkSarah – Official</title>
 
-  <!-- Schrift: Orbitron -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+    /* Google Font (ähnlich wie deine jetzige) */
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
-  <style>
-    :root{
-      --bg-black:#050406;
-      --pink:#ff2fa6;
-      --purple:#7b2cff;
-      --cyan:#00e5ff;
-      --glass:rgba(255,255,255,0.04);
-      --accent:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      min-height:100vh;
-      font-family:'Orbitron',system-ui,sans-serif;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(123,44,255,0.04), transparent 10%),
-                  radial-gradient(1000px 500px at 90% 90%, rgba(0,229,255,0.03), transparent 10%),
-                  var(--bg-black);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      flex-direction:column;
-      gap:28px;
-      padding:28px;
+    body {
+        margin: 0;
+        background: #0a0014;
+        color: white;
+        font-family: 'Indie Flower', cursive;
+        text-align: center;
     }
 
-    /* Top header (above banner) */
-    .top {
-      width:100%;
-      max-width:1100px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-      text-align:center;
-      color:#fff;
-    }
-    .eyebrow{
-      font-size:12px;
-      letter-spacing:1px;
-      opacity:0.9;
-      text-transform:uppercase;
-    }
-    .main-title{
-      font-size:48px;
-      margin:0;
-      line-height:0.95;
-      letter-spacing:2px;
-      color:var(--pink);
-      text-shadow:
-        0 0 18px rgba(255,47,166,0.55),
-        0 0 36px rgba(123,44,255,0.12);
-    }
-    .main-title strong{ color:var(--cyan); }
-
-    .subline{
-      opacity:0.85;
-      font-size:14px;
+    /* Neon Glow */
+    .glow {
+        text-shadow: 0 0 10px #ff00ff, 0 0 25px #9b00ff, 0 0 45px #3b00ff;
     }
 
-    .top-links{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:6px;
-    }
-    .top-links a{
-      padding:10px 16px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:700;
-      letter-spacing:1px;
-      background:var(--glass);
-      color:#fff;
-      border:1px solid rgba(255,255,255,0.03);
-      transition:transform .18s, box-shadow .18s;
-    }
-    .top-links a.primary{
-      background-image:var(--accent);
-      color:#050406;
-      border:none;
-      min-width:160px;
-    }
-    .top-links a:hover{ transform:translateY(-4px); box-shadow:0 14px 36px rgba(0,0,0,0.6); }
-
-    /* banner */
-    .banner-wrap{
-      width:100%;
-      max-width:1100px;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.03);
-      box-shadow:0 12px 40px rgba(0,0,0,0.6);
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:0;
-    }
-    .banner-wrap img{
-      width:100%;
-      height:auto;
-      display:block;
-      object-fit:cover;
+    /* Banner */
+    .banner {
+        width: 100%;
+        max-width: 700px;
+        margin: 30px auto;
+        border-radius: 12px;
+        box-shadow: 0 0 25px #ff00ff99;
     }
 
-    /* content card under banner */
-    .card{
-      width:100%;
-      max-width:900px;
-      border-radius:12px;
-      padding:20px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.03);
-      backdrop-filter: blur(6px);
-      box-shadow:0 10px 30px rgba(0,0,0,0.6);
-      text-align:center;
-    }
-    .card .links{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
-    .btn{
-      padding:10px 16px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:700;
-      letter-spacing:1px;
-      background:var(--glass);
-      color:#fff;
-      transition:transform .18s, box-shadow .18s;
-    }
-    .btn.primary{ background-image:var(--accent); color:#050406; border:none; }
-
-    .footer{ margin-top:14px; font-size:12px; opacity:0.75; }
-
-    /* BIO SECTION */
-    .bio{
-      max-width:900px;
-      width:100%;
-      padding:20px;
-      margin-top:20px;
-      border-radius:12px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.03);
-      backdrop-filter:blur(6px);
-      box-shadow:0 10px 30px rgba(0,0,0,0.6);
-    }
-    .bio h2{
-      font-size:34px;
-      margin-top:0;
-      margin-bottom:18px;
-      font-weight:900;
-      letter-spacing:2px;
-      color:var(--pink);
-      text-shadow:0 0 18px rgba(255,47,166,0.4);
-    }
-    .bio p{
-      font-size:15px;
-      line-height:1.7;
-      opacity:0.9;
-      margin-bottom:20px;
-    }
-    .bio img{
-      width:100%;
-      border-radius:12px;
-      margin-top:10px;
-      box-shadow:0 10px 35px rgba(0,0,0,0.7);
+    h1, h2, h3, h4 {
+        margin: 20px 0;
     }
 
-    @media (max-width:700px){
-      .main-title{ font-size:34px; }
-      .top-links a.primary{ min-width:140px; }
-      .bio h2{ font-size:28px; }
+    h1 {
+        font-size: 55px;
     }
-  </style>
+
+    h2 {
+        font-size: 45px;
+    }
+
+    h3 {
+        font-size: 33px;
+    }
+
+    h4 {
+        font-size: 28px;
+    }
+
+    /* Bio Bereich */
+    .bio-section {
+        max-width: 850px;
+        margin: 50px auto;
+        padding: 20px;
+        background: rgba(255, 0, 255, 0.08);
+        border-radius: 18px;
+        box-shadow: 0 0 20px #9500ff55;
+    }
+
+    .bio-img {
+        width: 60%;
+        border-radius: 16px;
+        box-shadow: 0 0 25px #ff00ffaa;
+        margin-bottom: 30px;
+    }
+
+    .bio-text {
+        font-size: 22px;
+        line-height: 1.6;
+        white-space: pre-line;
+    }
+
+    /* Songs */
+    .songs-section {
+        margin-top: 80px;
+        padding: 20px;
+    }
+
+    .song-card {
+        max-width: 850px;
+        margin: 30px auto;
+        padding: 25px;
+        background: rgba(0, 0, 50, 0.35);
+        border-radius: 16px;
+        box-shadow: 0 0 30px #6600ff55;
+    }
+
+    .song-cover {
+        width: 60%;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #ff00ffaa;
+        margin-bottom: 25px;
+    }
+
+    a {
+        color: #7ab8ff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-shadow: 0 0 10px #3da9ff;
+    }
+
+    /* Glow-Animation */
+    @keyframes pulse {
+        0% { text-shadow: 0 0 10px #ff00ff; }
+        50% { text-shadow: 0 0 25px #7f00ff; }
+        100% { text-shadow: 0 0 10px #ff00ff; }
+    }
+
+    .pulse {
+        animation: pulse 3s infinite;
+    }
+</style>
 </head>
+
 <body>
 
-  <!-- TOP HEADER ABOVE BANNER -->
-  <div class="top" role="banner">
-    <div class="eyebrow">This is</div>
-    <h1 class="main-title"><strong>Tekk</strong>Sarah</h1>
-    <div class="subline">Dark Techno • Beats • Underground</div>
+    <!-- TITLE -->
+    <h1 class="glow pulse">This Is TekkSarah</h1>
 
-    <div class="top-links" aria-label="Quick links">
-      <a class="primary" href="https://open.spotify.com/artist/7mWcwF4VaxZFGJtszGRsR4?si=bmSFVz-MSRCX6wDnSeRrtQ" target="_blank">Spotify</a>
-      <a href="https://youtube.com/@tekksarah?si=hSYzTIBmI_AJsTpd" target="_blank">YouTube</a>
-      <a href="https://www.instagram.com/tekksarah1?igsh=bGI3MnhkdmxyZDBp" target="_blank">Instagram</a>
-    </div>
-  </div>
+    <!-- BANNER -->
+    <img src="banner.jpg" class="banner" alt="TekkSarah Banner">
 
-  <!-- BANNER -->
-  <div class="banner-wrap">
-    <img src="banner.jpg" alt="TekkSarah Banner" />
-  </div>
+    <!-- BIO SECTION -->
+    <section class="bio-section">
+        <img src="bio.jpg" class="bio-img" alt="TekkSarah Bio Bild">
 
-  <!-- CONTENT CARD -->
-  <div class="card" role="main">
-    <div style="font-weight:700; letter-spacing:1px;">Latest</div>
+        <h2 class="glow">Biographie</h2>
 
-    <div class="links" style="margin-top:12px;">
-      <a class="btn primary" href="https://open.spotify.com/artist/7mWcwF4VaxZFGJtszGRsR4?si=bmSFVz-MSRCX6wDnSeRrtQ" target="_blank">Spotify</a>
-      <a class="btn" href="https://youtube.com/@tekksarah?si=hSYzTIBmI_AJsTpd" target="_blank">YouTube</a>
-      <a class="btn" href="https://www.instagram.com/tekksarah1?igsh=bGI3MnhkdmxyZDBp" target="_blank">Instagram</a>
-    </div>
+        <p class="bio-text">
+Ich bin TekkSarah. Musik ist mein Space, mein Drive, mein Reset-Knopf. 
+Alles, was ich erlebt habe – Höhen, Tiefpunkte, Wachstum – landet in meinen Lines. 
+Ich mixe echte Emotionen mit klaren Statements und bringe das raus, was sonst niemand sieht. 
+Keine Fake-Vibes, kein Image, nur echte Stories auf echten Beats. 
+Das ist mein Sound, direkt aus meinem Leben.
 
-    <div class="footer">© <span id="year"></span> TekkSarah — All Rights Reserved</div>
-  </div>
+Meine Tracks stehen für Haltung und Heart. 
+Sie tragen meine Erfahrungen, meine Energie und meinen eigenen Weg. 
+Ich verarbeite, was mich geprägt hat, und kreiere daraus etwas Echtes und Zeitloses. 
+Kein Filter, kein Overacting – nur Authentizität und ein Style, der für sich spricht. 
+Wer meine Musik hört, spürt meine Vision: real, selbstbewusst und voller Power.
+        </p>
+    </section>
 
-  <!-- BIO SECTION -->
-  <div class="bio">
-    <h2>Biographie</h2>
+    <!-- SONGS SECTION -->
+    <section class="songs-section">
+        <h2 class="glow">Songs</h2>
 
-    <p>
-      Ich bin TekkSarah. Musik ist mein Space, mein Drive, mein Reset-Knopf.
-      Alles, was ich erlebt habe – Höhen, Tiefpunkte, Wachstum – landet in meinen Lines.
-      Ich mixe echte Emotionen mit klaren Statements und bringe das raus, was sonst niemand sieht.
-      Keine Fake-Vibes, kein Image, nur echte Stories auf echten Beats.
-      Das ist mein Sound, direkt aus meinem Leben.
-    </p>
+        <div class="song-card">
+            <img src="soko.jpg" alt="SOKO Innenstadt Cover" class="song-cover">
 
-    <p>
-      Meine Tracks stehen für Haltung und Heart. Sie tragen meine Erfahrungen, meine Energie
-      und meinen eigenen Weg. Ich verarbeite, was mich geprägt hat, und kreiere daraus etwas
-      Echtes und Zeitloses. Kein Filter, kein Overacting – nur Authentizität und ein Style,
-      der für sich spricht. Wer meine Musik hört, spürt meine Vision: real, selbstbewusst
-      und voller Power.
-    </p>
+            <h3 class="glow">SOKO Innenstadt (Ich will nur ballern)</h3>
 
-    <img src="bio.jpg" alt="TekkSarah Biografie Bild">
-  </div>
+            <p>
+                ➜ <a href="https://open.spotify.com/track/1iwznZQb5hCnjyUutngK2i?si=NoBJlG6qRQWnreoTIOSiNQ" target="_blank">
+                Auf Spotify anhören
+                </a>
+            </p>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+            <h4 class="glow">Beschreibung</h4>
+
+            <p class="bio-text">
+In diesem Song geht es um das SOKO Innenstadt Team aus Bielefeld.
+Es ist ein verzerrter Hard-Rave / Trap-Banger mit maximaler Eskalationsenergie.
+„SOKO Innenstadt (Ich will nur ballern)“ ist schnell, aggressiv, laut und komplett kompromisslos –
+ein Track zum Durchdrehen, Springen und Abreißen.
+Perfekt für Moshpits, Festivals und Nächte, in denen niemand bremsen will.
+
+© 2025 TekkSarah. Alle Rechte vorbehalten.
+#rave #hardtrap #hardrave #bass #party #ballern #underground #electronic #festival
+            </p>
+        </div>
+    </section>
 
 </body>
 </html>
